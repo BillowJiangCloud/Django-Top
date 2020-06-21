@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <style>
+        div {
+            margin: auto;
+            width: 50%;
+            height: 500px;
+            border: 5px olivedrab solid;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        form {
+            margin: auto;
+            padding-top: 15%;
+            width: 50%;
+        }
+
+        input {
+            height: 30px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Top 分数排行榜</h1>
+    <form action="" method="post">
+        <label>
+            <input type="text" placeholder="账号" name="username">
+            <br><br>
+            <input type="password" placeholder="密码" name="password">
+            <br><br>
+        </label>
+        <input type="submit" value="登录">
+    </form>
+    <p>{{ mes }}</p>
+</div>
+</body>
+</html>

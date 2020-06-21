@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <style>
+        div {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        table {
+            overflow: hidden;
+            margin: auto;
+            width: 50%;
+            border: 2px olivedrab solid;
+            border-radius: 35px;
+        }
+
+        table td {
+            border-top: 1px olivedrab solid;
+
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h3>当前用户-客户端{{ user.T_id.num }}&emsp;Top-{{ user.T_id.top }}&emsp;分数-{{ user.T_id.score }}</h3>
+    <button><a href="{% url 'api:logout' %}">登出</a></button>
+    <br>
+    <br>
+    <form action="" method="post">
+        <label>
+            <span>从</span>
+            <input type="text" placeholder="输入" name="start">
+            <span>至</span>
+            <input type="text" placeholder="输入" name="end">
+        </label>
+        <input type="submit" value="查询">
+    </form>
+    <br>
+    <button><a href="{% url 'api:UpInfo' %}" style="text-decoration: none">上传分数</a></button>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Top</th>
+            <th>客户端</th>
+            <th>分数</th>
+        </tr>
+        {#      搜索结果数据#}
+        {% if restful %}
+            {% for res in restful %}
+                <tr>
+                    <td>{{ res.0 }}</td>
+                    <td>{{ res.1 }}</td>
+                    <td>{{ res.2 }}</td>
+                </tr>
+            {% endfor %}
+            {#      排行榜数据#}
+        {% else %}
+            {% for foo in info %}
+                <tr>
+                    <td>{{ foo.0 }}</td>
+                    <td>{{ foo.1 }}</td>
+                    <td>{{ foo.2 }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        <tr style="background-color: cyan;">
+            <td>{{ user.T_id.top }}</td>
+            <td>客户端{{ user.T_id.num }}</td>
+            <td>{{ user.T_id.score }}</td>
+        </tr>
+    </table>
+    <p style="color: red">{{ mes }}</p>
+</div>
+</body>
+</html>

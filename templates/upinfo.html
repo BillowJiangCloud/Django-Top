@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>上传分数</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <style>
+        div {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h3>上传你的分数(1~10000000)</h3>
+    <button><a href="{% url 'api:logout' %}">登出</a></button>
+    <br>
+    <br>
+    <form action="" method="post">
+        <label>
+            <input type="text" placeholder="输入分数" name="up_score">
+        </label>
+        <input type="submit" value="上传">
+    </form>
+    <br>
+    <button><a href="{% url 'api:index' %}">查看排行榜</a></button>
+    <p style="color: red">{{ mes }}</p>
+</div>
+</body>
+</html>
