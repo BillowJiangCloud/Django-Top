@@ -24,3 +24,13 @@ pip install -m yilai.txt
 
 ##### 结尾：Demo下载后，安装完依赖即可正常运行。
 
+
+
+**附加题：**
+
+> 版本号比较。
+>
+> 比较两个版本号 version1 和 version2。
+> 如果 version1 > version2 返回 1，如果 version1 < version2 返回 -1， 除此之外返回 0。
+
+解题文件：version.py
